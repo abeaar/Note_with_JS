@@ -9,7 +9,7 @@ Content-Type: application/json
     "name": "arif faturahman",
     "password": "1234",
     "email": "Arif@gmail.com",
-    "title": "Edo x awang doujinshi",
+    "title": "Kuantum fisika",
     "category": "komik"
 }
 ###

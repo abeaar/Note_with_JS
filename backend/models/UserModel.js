@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import dbContext from "../config/Database.js"; // Import the database connection
 
-const User = dbContext.define('User', {
+const User = dbContext.define('user', {
   // Define the columns
   name: DataTypes.STRING,
   password: DataTypes.STRING,
@@ -13,7 +13,6 @@ const User = dbContext.define('User', {
 });
 
 export default User;
-// The code above defines a User model using Sequelize. The model has four columns: name, email, password
 
 (async()=>{
     await dbContext.sync();
