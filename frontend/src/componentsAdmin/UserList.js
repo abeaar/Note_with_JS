@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
+const API_URL = "http://35.184.118.193:5000"; // URL API
+
 const UserList = () => { 
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState(""); // State untuk pencarian
@@ -12,13 +14,13 @@ const UserList = () => {
   }, []);
 
   const getUsers = async () => {
-    const response = await axios.get('http://localhost:5000/users/');
+    const response = await axios.get(`${API_URL}/users`);
     setUsers(response.data);
   };
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/users/${id}`);
+      await axios.delete(`${API_URL}/users/${id}`);
       getUsers();
     } catch (error) {
       console.error(error);

@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
+const API_URL = "http://35.184.118.193:5000"; // URL API
+
 const AddUser = () => {
 const [name, setName] = useState("");
 const [password, setPassword] = useState("");
@@ -13,12 +15,12 @@ const navigate = useNavigate();
   const saveUser = async (e) => {
     e.preventDefault();
     try{
-      await axios.post('http://localhost:5000/users/', {
+      await axios.post(`${API_URL}/users`, {
         name,
         password,
         email,
         title,
-        category
+        category,
       });
       navigate("/");
     } catch (error) {

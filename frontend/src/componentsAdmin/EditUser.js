@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 
+const API_URL = "http://35.184.118.193:5000"; // URL API
+
+
 const EditUser = () => {
 const [name, setName] = useState("");
 const [password, setPassword] = useState("");
@@ -18,12 +21,12 @@ useEffect(() => {
   const updateUser = async (e) => {
     e.preventDefault();
     try{
-      await axios.patch(`http://localhost:5000/users/${id}`, {
+      await axios.patch(`${API_URL}/users/${id}`, {
         name,
         password,
         email,
         title,
-        category
+        category,
       });
       navigate("/");
     } catch (error) {
@@ -32,7 +35,7 @@ useEffect(() => {
   }
 
   const getUserById = async () => {
-      const response = await axios.get(`http://localhost:5000/users/${id}`);
+      const response = await axios.get(`${API_URL}/users/${id}`);
       setName(response.data.name);
       setPassword(response.data.password);
       setEmail(response.data.email);
